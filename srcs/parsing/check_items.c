@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:30:33 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/25 15:36:30 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/25 18:04:38 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,23 +115,25 @@ int check_line(char *line, int *count_items)
 		{
 			if (find_path(line_splited[i+1]) == 0)
 				path_validated = 1;
-			if (check_color(line_splited[i+1]) == 0)
-				color_validated = 1;
+			// if (check_color(line_splited[i+1]) == 0)
+			// 	color_validated = 1;
 		}
 		i++;
 	}
+	free_file(line_splited);
 	if (path_validated || color_validated)
 		*count_items = *count_items + 1;
 	return (0);
 }
 
-int	check_element(char **file)
+int	check_element(char **file, char **data)
 {
 	int	count_items;
 	int	i;
 
 	i = 0;
 	count_items = 0;
+	(void)data;
 	while (file[i])
 	{
 		if (check_line(file[i], &count_items))

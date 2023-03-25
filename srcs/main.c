@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/25 14:30:26 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/25 16:09:28 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,25 +62,29 @@ int check_map(char *map)
 	return (fd);
 }
 
-int launch(char *map)
+int launch(char *map, char **data)
 {
 	int	fd;
+
 	fd = check_map(map);
 	if (fd == -1)
 		return (0);
-	if (parse_map(fd) == 0)
+	if (parse_map(fd, data) == 0)
 		return (0);
 	return (1);
 }
 
 int main(int argc, char **argv)
 {
+	char	**data;
+
+	data = NULL;
 	if (argc != 2)
 	{
 		printf("Invalids numbers of arguments\n");
 		return (0);
 	}
-	if (launch(argv[1]) == 0)
+	if (launch(argv[1], data) == 0)
 	{
 		printf("ERROR\n");
 		return (0);

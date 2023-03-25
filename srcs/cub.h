@@ -16,12 +16,11 @@ typedef struct s_line
 }	t_line;
 
 // PARSING
-int		parse_map(int fd);
+int		parse_map(int fd, char **data);
 char	**save_line(int position, char *map, char **file);
-int		check_element(char **file);
+int		check_element(char **file, char **data);
 char	**iterate_on_file(char *buf, int fd, char *map, char **file);
 char	**read_file(char **file, char *map, int fd);
-int		parse_map(int fd);
 
 // UTILS
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -32,5 +31,6 @@ t_line	*create_node(int line, char *value);
 void    add_last(t_line **lst, t_line *new_node);
 char	**ft_split(char const *s, char c);
 int 	ft_strcmp(const char *s1, const char *s2);
+void	free_file(char **file);
 
 #endif
