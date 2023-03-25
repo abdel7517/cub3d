@@ -8,17 +8,15 @@
 # include <stdio.h>
 
 
-typedef struct s_line
+typedef struct s_game
 {
-	char *value;
-	int	line;
-	struct s_line	*next;
-}	t_line;
+	char **data;
+}	t_game;
 
 // PARSING
-int		parse_map(int fd, char **data);
+int		parse_map(int fd, t_game data);
 char	**save_line(int position, char *map, char **file);
-int		check_element(char **file, char **data);
+int		check_element(char **file, t_game *data);
 char	**iterate_on_file(char *buf, int fd, char *map, char **file);
 char	**read_file(char **file, char *map, int fd);
 
@@ -27,10 +25,9 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s1);
 char 	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
-t_line	*create_node(int line, char *value);
-void    add_last(t_line **lst, t_line *new_node);
 char	**ft_split(char const *s, char c);
 int 	ft_strcmp(const char *s1, const char *s2);
 void	free_file(char **file);
+char	**add_node(char *key, char *value, t_game *data);
 
 #endif

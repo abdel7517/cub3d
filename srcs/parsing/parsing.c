@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:00:25 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/25 18:32:38 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/26 00:38:12 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ char **read_file(char **file, char *map, int fd)
 	return (file);
 }
 
-int parse_map(int fd, char **data)
+int parse_map(int fd, t_game data)
 {
 	char	**file;
 	char 	*map;
@@ -127,7 +127,7 @@ int parse_map(int fd, char **data)
 	file = read_file(file, map, fd);
 	if (file == NULL)
 		return (0);
-	if (check_element(file, data))
+	if (check_element(file, &data))
 	{
 		printf("ERROR IN LINE\n");
 		return (0);

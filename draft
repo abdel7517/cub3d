@@ -1,2 +1,2 @@
-- Leaks 
+- Leaks (reste celui dans read_file 8 leaks)
 - Ajout de chaque element dans data pour simplifie a ousama (fonction ajoutant un element dans data commenter dans utils2)

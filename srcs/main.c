@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/25 16:09:28 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/26 00:31:51 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int check_map(char *map)
 	return (fd);
 }
 
-int launch(char *map, char **data)
+int launch(char *map, t_game data)
 {
 	int	fd;
 
@@ -74,11 +74,16 @@ int launch(char *map, char **data)
 	return (1);
 }
 
+void init_game(t_game *data)
+{
+	data->data = NULL;
+}
+
 int main(int argc, char **argv)
 {
-	char	**data;
+	t_game	data;
 
-	data = NULL;
+	init_game(&data);
 	if (argc != 2)
 	{
 		printf("Invalids numbers of arguments\n");

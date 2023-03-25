@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:30:33 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/25 18:04:38 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/26 00:43:40 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int check_color(char *word)
 	return (1);
 }
 
-int check_line(char *line, int *count_items)
+int check_line(char *line, int *count_items, t_game *data)
 {
 	int		i;
 	char	**line_splited;
@@ -114,7 +114,10 @@ int check_line(char *line, int *count_items)
 		if (is_id(line_splited[i]))
 		{
 			if (find_path(line_splited[i+1]) == 0)
+			{
 				path_validated = 1;
+				data->data = add_node(line_splited[i], line_splited[i + 1], data);
+			}
 			// if (check_color(line_splited[i+1]) == 0)
 			// 	color_validated = 1;
 		}
@@ -126,7 +129,7 @@ int check_line(char *line, int *count_items)
 	return (0);
 }
 
-int	check_element(char **file, char **data)
+int	check_element(char **file, t_game *data)
 {
 	int	count_items;
 	int	i;
@@ -136,11 +139,16 @@ int	check_element(char **file, char **data)
 	(void)data;
 	while (file[i])
 	{
-		if (check_line(file[i], &count_items))
+		if (check_line(file[i], &count_items, data))
 			return (1);
 		printf("line %d->%s and count = %d\n", i, file[i], count_items);
 		i++;
 	}
+	i = 0;
+	printf("-----------------\n");
+	while (data->data[i])
+		printf("%s\n", data->data[i++]);
+	free_file(data->data);
 	if (count_items == 5)
 		return (0);
 	return (1);
