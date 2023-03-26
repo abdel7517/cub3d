@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 23:18:40 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/26 00:44:41 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:53:15 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,26 @@ char **add_node(char *key, char *value, t_game *data)
 	if (new_file[j] == NULL)
 		return (NULL);
 	new_file[++j] = 0;
-    free_file(data->data);
 	return (new_file);
+}
+
+char    *get_element(char *key, t_game *data)
+{
+    int     i;
+    char    **value;
+
+    value = NULL;
+    i = 0;
+    while (data->data[i])
+    {
+        value = ft_split(data->data[i],':');
+        if (value == NULL)
+            return (NULL);
+        if (ft_strcmp(key, value[0]) == 0)
+            return (value[1]);
+        i++;
+    }
+    return (NULL);
 }
 
 void free_file(char **file)

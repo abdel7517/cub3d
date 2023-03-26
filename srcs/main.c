@@ -6,13 +6,13 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/26 00:31:51 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:55:29 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-int check_extension(char *map)
+int	check_extension(char *map)
 {
 	int	len;
 
@@ -33,6 +33,7 @@ int check_extension(char *map)
 		return (0);
 	return (1);
 }
+
 int check_map(char *map)
 {
 	int	fd;
@@ -42,7 +43,7 @@ int check_map(char *map)
 	{
 		printf("%s ", map);
 		printf("is a bad file name\n");
-		return (0);
+		return (-1);
 	}
 	fd = open(map, O_DIRECTORY);
 	if (fd > 0)
@@ -50,33 +51,35 @@ int check_map(char *map)
 		printf("%s ", map);
 		printf("is a directories\n");
 		close(fd);
-		return (0);
+		return (-1);
 	}	
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 	{
 		printf("%s ", map);
 		printf("is not readable\n");
-		return (0);
+		return (-1);
 	}
 	return (fd);
 }
 
-int launch(char *map, t_game data)
+int launch(char *map, t_game *data)
 {
 	int	fd;
 
+	(void)data;
 	fd = check_map(map);
 	if (fd == -1)
 		return (0);
 	if (parse_map(fd, data) == 0)
-		return (0);
+ 		return (0);
 	return (1);
 }
 
 void init_game(t_game *data)
 {
 	data->data = NULL;
+	data->file = NULL;
 }
 
 int main(int argc, char **argv)
@@ -89,7 +92,7 @@ int main(int argc, char **argv)
 		printf("Invalids numbers of arguments\n");
 		return (0);
 	}
-	if (launch(argv[1], data) == 0)
+	if (launch(argv[1], &data) == 0)
 	{
 		printf("ERROR\n");
 		return (0);

@@ -8,6 +8,7 @@ OBJS_SRC = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}
 UTILS_DIR = ./srcs/utils/
 UTILS =	utils.c \
 		utils2.c \
+		utils3.c \
 		utils_linked_list.c \
 		ft_split.c
 

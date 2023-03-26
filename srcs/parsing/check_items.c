@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:30:33 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/26 00:43:40 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:47:35 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,37 @@
 
 int	is_id(char *word)
 {
-	int static NO;
-	int static SO;
-	int static WE;
-	int static EA;
-	int static F;
+	int static NO_S;
+	int static SO_S;
+	int static WE_S;
+	int static EA_S;
+	int static F_S;
 
 	if (word == NULL)
 		return (0);
-	if (ft_strcmp("NO", word) == 0 && NO == 0)
+	if (ft_strcmp("NO", word) == 0 && NO_S == 0)
 	{
-		NO = 1;
+		NO_S = 1;
 		return (1);
 	}
-	if (ft_strcmp("SO", word) == 0 && SO == 0)
+	if (ft_strcmp("SO", word) == 0 && SO_S == 0)
 	{
-		SO = 1;
+		SO_S = 1;
 		return (1);
 	}
-	if (ft_strcmp("WE", word) == 0 && WE == 0)
+	if (ft_strcmp("WE", word) == 0 && WE_S == 0)
 	{
-		WE = 1;
+		WE_S = 1;
 		return (1);
 	}
-	if (ft_strcmp("EA", word) == 0 && EA == 0)
+	if (ft_strcmp("EA", word) == 0 && EA_S == 0)
 	{
-		EA = 1;
+		EA_S = 1;
 		return (1);
 	}
-	if (ft_strcmp("F", word) == 0 && F == 0)
+	if (ft_strcmp("F", word) == 0 && F_S == 0)
 	{
-		F = 1;
+		F_S = 1;
 		return (1);
 	}
 	return (0);
@@ -61,6 +61,7 @@ int	find_path(char *word)
 	}
 	return (1);
 }
+
 
 int check_color(char *word)
 {
@@ -118,8 +119,11 @@ int check_line(char *line, int *count_items, t_game *data)
 				path_validated = 1;
 				data->data = add_node(line_splited[i], line_splited[i + 1], data);
 			}
-			// if (check_color(line_splited[i+1]) == 0)
-			// 	color_validated = 1;
+			if (check_color(line_splited[i+1]) == 0)
+			{
+				data->data = add_node(line_splited[i], line_splited[i + 1], data);
+				color_validated = 1;
+			}
 		}
 		i++;
 	}
@@ -136,19 +140,20 @@ int	check_element(char **file, t_game *data)
 
 	i = 0;
 	count_items = 0;
-	(void)data;
-	while (file[i])
+	(void)file;
+	while (data->file[i])
 	{
-		if (check_line(file[i], &count_items, data))
+		printf("line %d->%s and count = %d\n", i, data->file[i], count_items);
+		if (check_line(data->file[i], &count_items, data))
 			return (1);
-		printf("line %d->%s and count = %d\n", i, file[i], count_items);
 		i++;
 	}
+	free_file_in_game(data);
 	i = 0;
-	printf("-----------------\n");
+	printf("--------%s---------\n", get_element("F", data));
 	while (data->data[i])
 		printf("%s\n", data->data[i++]);
-	free_file(data->data);
+	free_file_in_game(data);
 	if (count_items == 5)
 		return (0);
 	return (1);
