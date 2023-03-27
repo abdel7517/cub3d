@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 23:18:40 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/26 16:53:15 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:52:19 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,14 @@ char **add_node(char *key, char *value, t_game *data)
 		return (NULL);
 	while (j < i)
 	{
-		new_file[j] = data->data[j]; 
+		new_file[j] = ft_strdup(data->data[j]); 
 		j++;
 	}
 	new_file[j] = create_new_key_value(key, value);
 	if (new_file[j] == NULL)
 		return (NULL);
 	new_file[++j] = 0;
+    free_file(data->data);
 	return (new_file);
 }
 

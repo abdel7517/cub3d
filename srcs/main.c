@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/26 16:55:29 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/27 00:55:52 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_extension(char *map)
 	return (1);
 }
 
-int check_map(char *map)
+int check_file(char *map)
 {
 	int	fd;
 
@@ -68,7 +68,7 @@ int launch(char *map, t_game *data)
 	int	fd;
 
 	(void)data;
-	fd = check_map(map);
+	fd = check_file(map);
 	if (fd == -1)
 		return (0);
 	if (parse_map(fd, data) == 0)
@@ -80,6 +80,8 @@ void init_game(t_game *data)
 {
 	data->data = NULL;
 	data->file = NULL;
+	data->map = NULL;
+	data->path = NULL;
 }
 
 int main(int argc, char **argv)

@@ -18,7 +18,10 @@ OBJS_UTILS = ${addprefix ${UTILS_DIR}, ${UTILS:.c=.o}}
 # /* ~~~~~~ PARSING ~~~~~~ */
 PARSING_DIR = ./srcs/parsing/
 PARSING =	parsing.c \
-			check_items.c
+			check_items.c \
+			check_texture.c \
+			handle_map.c
+
 OBJS_PARSING = ${addprefix ${PARSING_DIR}, ${PARSING:.c=.o}}
 
 # /* ~~~~~~~ COMPILING INFO ~~~~~~~ */
