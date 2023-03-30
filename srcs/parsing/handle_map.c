@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:03:48 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/30 18:06:26 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:03:20 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,36 @@ int	check_position_of_map_in_config_file(t_game *data, int i)
 	return (0);
 }
 
+void	flood_fill(t_game *data, int x, int y)
+{
+	usleep(100000);
+	int i = 0;
+	while (data->map_cpy[i])
+	{
+		printf("%s\n", data->map_cpy[i]);
+		i++;
+	}
+	if (data->map_cpy[x][y + 1] && data->map_cpy[x][y] != '1' && data->map_cpy[x][y] != '*') 
+	{
+		data->map_cpy[x][y] = '*';
+		flood_fill(data, x, y + 1);
+	}
+	if (data->map_cpy[x + 1] && data->map_cpy[x][y] != '1' && data->map_cpy[x + 1][y] != '*')
+	{
+		data->map_cpy[x][y] = '*';
+		flood_fill(data, x + 1, y);
+	}
+	if (x > 0 && data->map_cpy[x][y] != '1' && data->map_cpy[x - 1][y] != '*')
+	{
+		data->map_cpy[x][y] = '*';
+		flood_fill(data, x - 1, y);
+	}
+	if (y > 0 && data->map_cpy[x][y] != '1' && data->map_cpy[x][y - 1] != '*')
+	{
+		data->map_cpy[x][y] = '*';
+		flood_fill(data, x, y - 1);
+	}
+}
 
 int	check_map(t_game *data)
 {
@@ -83,5 +113,6 @@ int	check_map(t_game *data)
 		i++;
 	}
 	data->map_cpy = map_cpy;
+	flood_fill(data, 0, 0);
 	return (1);
 }
