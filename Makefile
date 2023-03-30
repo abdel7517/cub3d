@@ -20,7 +20,8 @@ PARSING_DIR = ./srcs/parsing/
 PARSING =	parsing.c \
 			check_items.c \
 			check_texture.c \
-			handle_map.c
+			handle_map.c \
+			duplicate_map.c
 
 OBJS_PARSING = ${addprefix ${PARSING_DIR}, ${PARSING:.c=.o}}
 

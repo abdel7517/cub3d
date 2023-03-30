@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/30 15:55:03 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/30 18:18:36 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void init_game(t_game *data)
 	data->file = NULL;
 	data->map = NULL;
 	data->path = NULL;
+	data->map_cpy = NULL;
 }
 
 int main(int argc, char **argv)
@@ -99,11 +100,16 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		printf("ERROR\nInvalids numbers of arguments\n");
+		free_file(data.map);
+		free_file(data.file);
+		free_file(data.data);
+		free_file(data.map_cpy);
 		return (0);
 	}
-	if (launch(argv[1], &data) == 0)
-		return (0);
+	launch(argv[1], &data);
 	free_file(data.map);
 	free_file(data.file);
 	free_file(data.data);
+	free_file(data.map_cpy);
+
 }
