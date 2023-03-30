@@ -6,25 +6,12 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:30:33 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/27 01:13:14 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:33:37 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
 
-
-int	find_path(char *word)
-{
-	int	fd;
-
-	fd = open(word, O_RDONLY);
-	if (fd > 0)
-	{
-		close(fd);	
-		return (0);
-	}
-	return (1);
-}
 
 int	check_format_of_color(char *word, int *digit_suit, int i)
 {
@@ -33,6 +20,7 @@ int	check_format_of_color(char *word, int *digit_suit, int i)
 
 	comma = 0;
 	digit = 0;
+
 	while(word[i])
 	{
 		while (word[i] >= '0' && word[i] <= '9')
@@ -126,10 +114,14 @@ int	check_element(t_game *data)
 	while (data->file[i])
 	{
 		if (check_line(data->file[i], &count_items, data))
+		{
+			printf("ERROR\nIN LINE");
 			return (1);
+		}
 		i++;
 		if (count_items == 5)
-			return (check_map(data, i));
+			return (check_position_of_map_in_config_file(data, i));
 	}
-	return (1);
+	printf("Error\nThere is a missing or an error in the config file (texture or color)");
+	return (0);
 }

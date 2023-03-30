@@ -6,11 +6,24 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:52:40 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/26 18:56:09 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/27 16:25:53 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
+
+int	find_path(char *word)
+{
+	int	fd;
+
+	fd = open(word, O_RDONLY);
+	if (fd > 0)
+	{
+		close(fd);	
+		return (0);
+	}
+	return (1);
+}
 
 int check_id2(char *word)
 {

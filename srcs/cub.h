@@ -27,7 +27,9 @@ int		check_element(t_game *data);
 char	**iterate_on_file(char *buf, int fd, char *map, char **file);
 char	**read_file(char **file, char *map, int fd);
 int		is_id(char *word);
-int		check_map(t_game *data, int i);
+int		check_position_of_map_in_config_file(t_game *data, int i);
+int		find_path(char *word);
+int		check_map(t_game *data);
 
 // UTILS
 char	*ft_strjoin(char const *s1, char const *s2);

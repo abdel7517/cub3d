@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/27 00:55:52 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:55:03 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ int check_file(char *map)
 	if (check_extension(map) == 0)
 	{
 		printf("%s ", map);
-		printf("is a bad file name\n");
+		printf("Error\nis a bad file name\n");
 		return (-1);
 	}
 	fd = open(map, O_DIRECTORY);
 	if (fd > 0)
 	{
 		printf("%s ", map);
-		printf("is a directories\n");
+		printf("Error\nis a directories\n");
 		close(fd);
 		return (-1);
 	}	
@@ -57,7 +57,7 @@ int check_file(char *map)
 	if (fd == -1)
 	{
 		printf("%s ", map);
-		printf("is not readable\n");
+		printf("Error\nis not readable\n");
 		return (-1);
 	}
 	return (fd);
@@ -67,12 +67,19 @@ int launch(char *map, t_game *data)
 {
 	int	fd;
 
-	(void)data;
 	fd = check_file(map);
 	if (fd == -1)
 		return (0);
 	if (parse_map(fd, data) == 0)
  		return (0);
+		
+		/*----- PRINT MAP-----*/
+	// int	i = 0;
+	// while (data->map[i])
+	// 	printf("%s\n", data->map[i++]);
+		
+	if (check_map(data) == 0)
+		return (0);
 	return (1);
 }
 
@@ -91,12 +98,12 @@ int main(int argc, char **argv)
 	init_game(&data);
 	if (argc != 2)
 	{
-		printf("Invalids numbers of arguments\n");
+		printf("ERROR\nInvalids numbers of arguments\n");
 		return (0);
 	}
 	if (launch(argv[1], &data) == 0)
-	{
-		printf("ERROR\n");
 		return (0);
-	}
+	free_file(data.map);
+	free_file(data.file);
+	free_file(data.data);
 }
