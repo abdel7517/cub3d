@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/30 18:18:36 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:19:52 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,6 @@ int launch(char *map, t_game *data)
 		return (0);
 	if (parse_map(fd, data) == 0)
  		return (0);
-		
-		/*----- PRINT MAP-----*/
-	// int	i = 0;
-	// while (data->map[i])
-	// 	printf("%s\n", data->map[i++]);
-		
 	if (check_map(data) == 0)
 		return (0);
 	return (1);

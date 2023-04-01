@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:30:33 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/30 18:12:01 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:19:35 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,9 @@ int	loop_on_line_splited(char **line_splited, int *path_validated, int *color_va
 		if (is_id(line_splited[i]))
 		{
 			if (find_path(line_splited[i+1]) == 0)
-			{
-				*path_validated = 1;
-				data->data = add_node(line_splited[i], line_splited[i + 1], data);
-			}
+				return (0);
+			*path_validated = 1;
+			data->data = add_node(line_splited[i], line_splited[i + 1], data);
 			if (check_color(line_splited[i+1]) == 0)
 			{
 				data->data = add_node(line_splited[i], line_splited[i + 1], data);
@@ -114,7 +113,7 @@ int	check_element(t_game *data)
 		if (check_line(data->file[i], &count_items, data) == 0)
 		{
 			printf("ERROR\nIN LINE");
-			return (1);
+			return (0);
 		}
 		i++;
 		if (count_items == 5)

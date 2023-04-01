@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:52:40 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/27 16:25:53 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:16:20 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	find_path(char *word)
 	if (fd > 0)
 	{
 		close(fd);	
-		return (0);
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
 int check_id2(char *word)
