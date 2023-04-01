@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/01 17:19:52 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/04/01 18:02:31 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,14 @@ int check_file(char *map)
 	fd = open(map, O_DIRECTORY);
 	if (fd > 0)
 	{
-		printf("%s ", map);
-		printf("Error\nis a directories\n");
+		printf("Error\n%s is a directories\n", map);
 		close(fd);
 		return (-1);
 	}	
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("%s ", map);
-		printf("Error\nis not readable\n");
+		printf("Error\n%s is not readable or doesn't exist\n", map);
 		return (-1);
 	}
 	return (fd);
