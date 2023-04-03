@@ -21,7 +21,8 @@ PARSING =	parsing.c \
 			check_items.c \
 			check_texture.c \
 			handle_map.c \
-			duplicate_map.c
+			duplicate_map.c \
+			check_map_closed.c
 
 OBJS_PARSING = ${addprefix ${PARSING_DIR}, ${PARSING:.c=.o}}
 

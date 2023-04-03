@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:03:57 by abchaban          #+#    #+#             */
-/*   Updated: 2023/03/30 17:05:15 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/04/01 18:47:44 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	find_biggest_x_and_y(int *x, int *y, t_game *data)
 {
 	int	i;
 	int	j;
-	int biggest_x;
+	int	biggest_x;
 
 	biggest_x = 0;
 	i = 0;
@@ -38,22 +38,21 @@ void	find_biggest_x_and_y(int *x, int *y, t_game *data)
 
 void	fill_line_with_zero(char *map, int x)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < x)
 	{
 		map[i] = '0';
-		i++;			
+		i++;
 	}
 	map[i] = 0;
 }
 
-
 int	create_line_of_map(char **map, int x, int y)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	j = 0;
 	i = 0;
@@ -98,7 +97,7 @@ void	fill_map(char **map, t_game *data)
 	}
 }
 
-char **create_map_cpy(int x, int y, t_game *data)
+char	**create_map_cpy(int x, int y, t_game *data)
 {
 	char	**map;
 

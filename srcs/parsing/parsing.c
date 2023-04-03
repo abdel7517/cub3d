@@ -6,7 +6,7 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:00:25 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/01 17:09:34 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/04/01 18:19:32 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,6 @@ char	**handle_first_line(char **file, char *line)
 		return (NULL);
 	file[1] = NULL;
 	return (file);
-}
-
-char	**cpy_old_file_and_add_new_line(char **file, char *line)
-{
-	int		i;
-	int		j;
-	char	**new_file;
-
-	i = 0;
-	j = 0;
-	while (file[i])
-		i++;
-	new_file = malloc(sizeof(char *) * (i + 2));
-	if (new_file == NULL)
-		return (NULL);
-	while (j < i)
-	{
-		new_file[j] = ft_strdup(file[j]);
-		j++;
-	}
-	new_file[j] = ft_strdup(line);
-	if (new_file[j] == NULL)
-		return (NULL);
-	new_file[++j] = 0;
-	free_file(file);
-	return (new_file);
 }
 
 char	**save_line(int position, char *map, char	**file)
@@ -71,19 +45,19 @@ char	**save_line(int position, char *map, char	**file)
 	return (file);
 }
 
-char **iterate_on_file(char *buf, int fd, char *map, char **file)
+char	**iterate_on_file(char *buf, int fd, char *map, char **file)
 {
-	char 	*tmp;
+	char	*tmp;
 	int		position;
-	
+
 	position = 0;
 	while (read(fd, buf, 1) > 0)
 	{
 		if (buf[0] == '\n')
 		{
-			file = save_line(position, map, file); 
+			file = save_line(position, map, file);
 			if (file == NULL)
-				return (free_file(file),free(map), NULL);
+				return (free_file(file), free(map), NULL);
 			continue ;
 		}
 		tmp = ft_strdup(map);
@@ -100,9 +74,9 @@ char **iterate_on_file(char *buf, int fd, char *map, char **file)
 	return (free(map), file);
 }
 
-char **read_file(char **file, char *map, int fd)
+char	**read_file(char **file, char *map, int fd)
 {
-	char 	buf[1];
+	char	buf[1];
 
 	if (read(fd, buf, 1))
 	{
@@ -116,10 +90,10 @@ char **read_file(char **file, char *map, int fd)
 	return (file);
 }
 
-int parse_map(int fd, t_game *data)
+int	parse_map(int fd, t_game *data)
 {
 	char	**file;
-	char 	*map;
+	char	*map;
 
 	file = NULL;
 	map = NULL;

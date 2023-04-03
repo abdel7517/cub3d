@@ -6,21 +6,20 @@
 /*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:30:33 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/01 17:58:50 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/04/01 18:41:57 by abchaban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
 
-
 int	check_format_of_color(char *word, int *digit_suit, int i)
 {
 	int	digit;
-	int comma;
+	int	comma;
 
 	comma = 0;
 	digit = 0;
-	while(word[i])
+	while (word[i])
 	{
 		while (word[i] >= '0' && word[i++] <= '9')
 			digit++;
@@ -40,10 +39,10 @@ int	check_format_of_color(char *word, int *digit_suit, int i)
 	return (0);
 }
 
-int check_color(char *word)
+int	check_color(char *word)
 {
 	int	digit_suit;
-	int i;
+	int	i;
 
 	i = 0;
 	digit_suit = 0;
@@ -56,7 +55,8 @@ int check_color(char *word)
 	return (1);
 }
 
-int	loop_on_line_splited(char **line_splited, int *path_validated, int *color_validated, t_game *data)
+int	loop_on_line_splited(char **line_splited, int *path_validated,
+							int *color_validated, t_game *data)
 {
 	int	i;
 
@@ -65,27 +65,24 @@ int	loop_on_line_splited(char **line_splited, int *path_validated, int *color_va
 	{
 		if (is_id(line_splited[i]))
 		{
-			if (check_color(line_splited[i+1]) == 0)
+			if (check_color(line_splited[i + 1]) == 0)
 			{
-				data->data = add_node(line_splited[i], line_splited[i + 1], data);
+				data->data = add_node(line_splited[i],
+						line_splited[i + 1], data);
 				*color_validated = 1;
 			}
 			else
-			{
-				if (find_path(line_splited[i+1]) == 0)
+				if (check_path(data, line_splited, path_validated, i) == 0)
 					return (0);
-				*path_validated = 1;
-				data->data = add_node(line_splited[i], line_splited[i + 1], data);
-			}
 			if (data->data == NULL)
-					return (0);
+				return (0);
 		}
 		i++;
 	}
 	return (1);
 }
 
-int check_line(char *line, int *count_items, t_game *data)
+int	check_line(char *line, int *count_items, t_game *data)
 {
 	int		i;
 	char	**line_splited;
@@ -96,7 +93,8 @@ int check_line(char *line, int *count_items, t_game *data)
 	path_validated = 0;
 	i = 0;
 	line_splited = ft_split(line, ' ');
-	if (loop_on_line_splited(line_splited, &path_validated, &color_validated, data) == 0)
+	if (loop_on_line_splited(line_splited,
+			&path_validated, &color_validated, data) == 0)
 		return (free_file(line_splited), 0);
 	free_file(line_splited);
 	if (path_validated || color_validated)
@@ -122,6 +120,7 @@ int	check_element(t_game *data)
 		if (count_items == 5)
 			return (check_position_of_map_in_config_file(data, i));
 	}
-	printf("Error\nThere is a missing or an error in the config file (texture or color)");
+	printf(
+		"Error\nin the config file (texture or color)");
 	return (0);
 }
