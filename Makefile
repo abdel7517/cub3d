@@ -1,7 +1,22 @@
+# /* ~~~~~~ NAME ~~~~~~ */
+
+NAME = cub3D
+
+# /* ~~~~~~~ Colors ~~~~~~~ */
+
+BLACK:="\033[1;30m"
+RED:="\033[1;31m"
+GREEN:="\033[1;32m"
+PURPLE:="\033[1;35m"
+CYAN:="\033[1;36m"
+WHITE:="\033[1;37m"
+EOC:="\033[0;0m"
+
 # /* ~~~~~~ SOURCES ~~~~~~ */
+
 SRCS_DIR = srcs/
 
-SRCS =	main.c \
+SRCS =	main.c
 
 SRCS +=	utils/utils.c \
 		utils/utils2.c \
@@ -16,44 +31,36 @@ SRCS +=	parsing/parsing.c \
 		parsing/duplicate_map.c \
 		parsing/check_map_closed.c
 
-SRCS += casting/window.c \
+SRCS += casting/window.c
 
 SRCS := ${addprefix ${SRCS_DIR}, ${SRCS}}
 
-# /* ~~~~~~~ OBJECT & DEPENDANCE ~~~~~~~ */
+# /* ~~~~~~~ OBJECTS & DEPENDANCES ~~~~~~~ */
 
 OBJS_DIR = objs/
-
 OBJS = $(SRCS:.c=.o)
-
 OBJS := $(addprefix $(OBJS_DIR), $(OBJS))
-
 DEP = ${OBJS_SRC:.o=.d} ${OBJS_UTILS:.o=.d} ${OBJS_PARSING:.o=.d}
 
 # /* ~~~~~~~ LIBS ~~~~~~~ */
 
+LIB_DIR = ./libs/
 DIR_MINILIBX = ./srcs/minilibx-linux/
-
-LIB_MINILIBX = ./objs/libmlx.a ./objs/libmlx_Linux.a
+LIB_MINILIBX = ./libs/libmlx.a ./libs/libmlx_Linux.a
 
 # /* ~~~~~~~ COMPILING INFO ~~~~~~~ */
+
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g3 -MMD
 MINILIBX_FLAGS = -lXext -lX11 -lm -lz
 
-# /* ~~~~~~~ OTHER ~~~~~~~ */
-NAME = cub3D
+# /* ~~~~~~~ COMMANDS ~~~~~~~ */
+
 RM = rm -rf
 MKDIR = mkdir -p
+CP = cp
 
-# /* ~~~~~~~ Colors ~~~~~~~ */
-BLACK:="\033[1;30m"
-RED:="\033[1;31m"
-GREEN:="\033[1;32m"
-PURPLE:="\033[1;35m"
-CYAN:="\033[1;36m"
-WHITE:="\033[1;37m"
-EOC:="\033[0;0m"
+# /* ~~~~~~~ RULES ~~~~~~~ */
 
 all:	${NAME}
 
@@ -64,22 +71,23 @@ $(NAME): $(OBJS) ${LIB_MINILIBX}
 	@echo $(GREEN) "[LAUNCH PROGRAMM]" $(EOC)
 
 ${LIB_MINILIBX}:
+	@${MKDIR} ${LIB_DIR}
 	@echo $(CYAN) " - Compiling minilibx" $(RED)
 	@make -C ${DIR_MINILIBX}
-	@cp ${DIR_MINILIBX}libmlx.a ${OBJS_DIR}
-	@cp ${DIR_MINILIBX}libmlx_Linux.a ${OBJS_DIR}
+	@${CP} ${DIR_MINILIBX}libmlx.a ${LIB_DIR}
+	@${CP} ${DIR_MINILIBX}libmlx_Linux.a ${LIB_DIR}
 	@echo $(GREEN) "[OK COMPILED]" $(EOC)
 
 run:	${NAME}
-	./${NAME} map.cub
+	./${NAME} ./maps/t.cub
 
 val:	${NAME}
-	valgrind ./${NAME} ./maps/map.cub
+	valgrind ./${NAME} ./maps/t.cub
 
 clean:
 		@echo $(PURPLE) "[🧹Cleaning...🧹]" $(EOC)
 		@make clean -C ${DIR_MINILIBX}
-		@${RM} ${OBJS_DIR}
+		@${RM} ${OBJS_DIR} ${LIB_DIR}
 
 fclean: clean
 		@echo $(PURPLE) "[🧹FCleaning...🧹]" $(EOC)

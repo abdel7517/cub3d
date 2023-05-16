@@ -1,5 +1,7 @@
 .vscode
 *.o
 *.d
+*.a
+libs
 objs
 cub3D
