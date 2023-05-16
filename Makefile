@@ -70,11 +70,11 @@ ${LIB_MINILIBX}:
 	@cp ${DIR_MINILIBX}libmlx_Linux.a ${OBJS_DIR}
 	@echo $(GREEN) "[OK COMPILED]" $(EOC)
 
-exec:	${NAME}
+run:	${NAME}
 	./${NAME} map.cub
 
 val:	${NAME}
-	valgrind ./${NAME} map.cub
+	valgrind ./${NAME} ./maps/map.cub
 
 clean:
 		@echo $(PURPLE) "[🧹Cleaning...🧹]" $(EOC)

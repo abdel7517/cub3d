@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 10:30:31 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:51:44 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,21 +90,23 @@ int	main(int ac, char **av)
 {
 	t_game	data;
 
+	(void)ac;
+	(void)av;
 	init_game(&data);
-	if (ac != 2)
-	{
-		printf("ERROR\nInvalids numbers of arguments\n");
-		free_file(data.map);
-		free_file(data.file);
-		free_file(data.data);
-		free_file(data.map_cpy);
-		return (0);
-	}
-	launch(av[1], &data);
+	// if (ac != 2)
+	// {
+	// 	printf("ERROR\nInvalids numbers of arguments\n");
+	// 	free_file(data.map);
+	// 	free_file(data.file);
+	// 	free_file(data.data);
+	// 	free_file(data.map_cpy);
+	// 	return (EXIT_FAILURE);
+	// }
+	// launch(av[1], &data);
 	window_init(&data);
-	free_file(data.map);
-	free_file(data.file);
-	free_file(data.data);
-	free_file(data.map_cpy);
+	// free_file(data.map);
+	// free_file(data.file);
+	// free_file(data.data);
+	// free_file(data.map_cpy);
 	return (EXIT_SUCCESS);
 }
