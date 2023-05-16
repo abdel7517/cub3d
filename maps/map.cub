@@ -1,7 +1,7 @@
-NO ./map/texture/eagle.xpm
-SO ./map/texture/eagle.xpm
-WE ./map/texture/eagle.xpm
-EA ./map/texture/eagle.xpm
+NO ./texture/eagle.xpm
+SO ./texture/eagle.xpm
+WE ./texture/eagle.xpm
+EA ./texture/eagle.xpm
 
 F 220,100,0
 C 225,30,0

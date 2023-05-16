@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 10:24:12 by obouhlel          #+#    #+#             */
-/*   Updated: 2023/05/16 10:30:43 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:58:57 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	close_window(t_game *data)
 {
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	data->mlx = NULL;
 	exit(EXIT_SUCCESS);
 }
 
