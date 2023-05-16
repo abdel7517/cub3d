@@ -6,11 +6,11 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:03:48 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:10:14 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "../../includes/cub.h"
 
 int	map_start(char *line)
 {

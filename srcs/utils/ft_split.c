@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 23:00:13 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/01 19:03:16 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "../../includes/cub.h"
 
 static int	count_words(const char *str, char c)
 {

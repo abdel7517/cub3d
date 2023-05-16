@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 23:18:40 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/03 15:05:46 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "../../includes/cub.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

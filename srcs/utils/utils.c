@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:30:26 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/01 18:56:46 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "../../includes/cub.h"
 
 size_t	ft_strlen(const char *s)
 {

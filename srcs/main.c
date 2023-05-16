@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/03 15:20:22 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:58:59 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub.h"
+#include "../includes/cub.h"
 
 int	check_extension(char *map)
 {

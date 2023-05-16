@@ -6,11 +6,11 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:52:40 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:09:52 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "../../includes/cub.h"
 
 int	find_path(char *word)
 {

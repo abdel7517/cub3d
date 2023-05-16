@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_closed.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:07:43 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/01 18:16:45 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub.h"
+#include "../../includes/cub.h"
 
 void	flood_fill(t_game *data, int x, int y, char value)
 {
