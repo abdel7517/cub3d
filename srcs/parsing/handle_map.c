@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:03:48 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/01 18:48:18 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:10:14 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@ int	check_element_after_map(t_game *data, int i)
 
 int	check_position_of_map_in_config_file(t_game *data, int i)
 {
-	int	end;
-
-	end = 1;
 	while (data->file[i])
 	{
 		if (map_start(data->file[i]))

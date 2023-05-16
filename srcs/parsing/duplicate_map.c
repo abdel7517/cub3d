@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   duplicate_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:03:57 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/01 18:47:44 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:10:26 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ void	fill_line_with_zero(char *map, int x)
 int	create_line_of_map(char **map, int x, int y)
 {
 	int	i;
-	int	j;
 
-	j = 0;
 	i = 0;
 	while (i < y)
 	{

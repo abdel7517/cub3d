@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_items.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:30:33 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/01 18:41:57 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:08:00 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,12 @@ int	loop_on_line_splited(char **line_splited, int *path_validated,
 
 int	check_line(char *line, int *count_items, t_game *data)
 {
-	int		i;
 	char	**line_splited;
 	int		path_validated;
 	int		color_validated;
 
 	color_validated = 0;
 	path_validated = 0;
-	i = 0;
 	line_splited = ft_split(line, ' ');
 	if (loop_on_line_splited(line_splited,
 			&path_validated, &color_validated, data) == 0)

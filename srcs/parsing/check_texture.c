@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_texture.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:52:40 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/01 18:46:11 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/05/16 09:09:52 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	find_path(char *word)
 
 int	check_id2(char *word)
 {
-	int static	no_s;
-	int static	so_s;
+	static int	no_s;
+	static int	so_s;
 
 	if (ft_strcmp("NO", word) == 0 && no_s == 0)
 	{
@@ -45,8 +45,8 @@ int	check_id2(char *word)
 
 int	check_id(char *word)
 {
-	int static	we_s;
-	int static	ea_s;
+	static int	we_s;
+	static int	ea_s;
 
 	if (check_id2(word))
 		return (1);
@@ -65,7 +65,7 @@ int	check_id(char *word)
 
 int	is_id(char *word)
 {
-	int static	f_s;
+	static int	f_s;
 
 	if (word == NULL)
 		return (0);
