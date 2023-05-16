@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abchaban <abchaban@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:10:00 by abchaban          #+#    #+#             */
-/*   Updated: 2023/04/03 15:14:15 by abchaban         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:31:04 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_H
 # define CUB_H
 
+# include "../srcs/minilibx-linux/mlx.h"
+# include "../srcs/minilibx-linux/mlx_int.h"
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -25,6 +27,43 @@
 # define EA 3
 # define F  4
 
+# define BASE_10	10
+# define BASE_16	16
+# define START		(char)83
+
+//======================RETURN=========================//
+# define SUCCESS	(void *)1
+# define FAIL		(void *)0
+
+//=====================WINDOW SIZE=====================//
+# define WIN_X		1200
+# define WIN_Y		700
+
+//========================EVENT========================//
+enum e_event {
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEUP = 5,
+	ON_MOUSEMOVE = 6,
+	ON_EXPOSE = 12,
+	ON_DESTROY = 17
+};
+
+//========================MASK=========================//
+# define NOEVENTMASK		0b0
+# define KEYPRESSMASK		0b1
+# define KEYRELEASEMASK		0b10
+
+//========================KEY==========================//
+# define ESCAPE	65307
+# define LEFT	65361
+# define RIGHT	65363
+# define UP		65362
+# define DOWN	65364
+# define PGUP	65365
+# define PGDOWN	65366
+
 typedef struct s_game
 {
 	char	**data;
@@ -32,8 +71,10 @@ typedef struct s_game
 	char	*path;
 	char	**map;
 	char	**map_cpy;
-
+	void	*mlx;
+	void	*win;
 }	t_game;
+
 
 // PARSING
 int			parse_map(int fd, t_game *data);
@@ -52,6 +93,9 @@ int			check_if_map_is_closed(t_game *data);
 int			find_element_on_map(t_game *data);
 int			find_starting_position(t_game *data, int *position);
 int			find_bad_element_on_map(t_game *data);
+
+// CASTING
+int			window_init(t_game *data);
 
 // UTILS
 char		*ft_strjoin(char const *s1, char const *s2);
