@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:10:00 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 10:31:04 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/16 13:45:34 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,27 @@
 
 # include "../srcs/minilibx-linux/mlx.h"
 # include "../srcs/minilibx-linux/mlx_int.h"
+
+# include <math.h>
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdio.h>
+
+// PARSING
 # define NO 0
 # define SO 1
 # define WE 2
 # define EA 3
 # define F  4
 
-# define BASE_10	10
-# define BASE_16	16
-# define START		(char)83
-
-//======================RETURN=========================//
-# define SUCCESS	(void *)1
-# define FAIL		(void *)0
-
-//=====================WINDOW SIZE=====================//
+// WINDOW SIZE
 # define WIN_X		1200
 # define WIN_Y		700
 
-//========================EVENT========================//
+// EVENTS
 enum e_event {
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
@@ -50,12 +46,12 @@ enum e_event {
 	ON_DESTROY = 17
 };
 
-//========================MASK=========================//
+// MASKS
 # define NOEVENTMASK		0b0
 # define KEYPRESSMASK		0b1
 # define KEYRELEASEMASK		0b10
 
-//========================KEY==========================//
+// KEYCODES
 # define ESCAPE	65307
 # define LEFT	65361
 # define RIGHT	65363
