@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:07:43 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/18 14:11:03 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 12:41:57 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	check_if_map_is_closed(t_data *data)
 		}
 		i++;
 	}
-	return (printf("Error\nThe map is not closed"), 0);
+	return (printf("Error\nThe map is not closed\n"), 0);
 }
 
 int	find_element_on_map(t_data *data)
@@ -69,7 +69,7 @@ int	find_element_on_map(t_data *data)
 	if (find_starting_position(data, &position) == 0)
 		return (0);
 	if (position == 0)
-		return (printf("Error\nStarting position not found"), 0);
+		return (printf("Error\nStarting position not found\n"), 0);
 	if (find_bad_element_on_map(data) == 0)
 		return (0);
 	return (1);
@@ -93,7 +93,7 @@ int	find_starting_position(t_data *data, int *position)
 				if (*position == 0)
 					*position = 1;
 				else
-					return (printf("Error\nMultiple starting position"), 0);
+					return (printf("Error\nMultiple starting position\n"), 0);
 			}
 			j++;
 		}
@@ -120,7 +120,7 @@ int	find_bad_element_on_map(t_data *data)
 				&& data->map_cpy[i][j] != ' ' && data->map_cpy[i][j] != '	'
 				&& data->map_cpy[i][j] != -1)
 			{
-				return (printf("Error\nBad char %c on map",
+				return (printf("Error\nBad char %c on map\n",
 						data->map_cpy[i][j]), 0);
 			}
 			j++;

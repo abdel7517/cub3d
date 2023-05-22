@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:10:00 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/22 12:34:37 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 13:02:41 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,10 @@ char		**add_line_of_map(char *line, t_data *data);
 char		**cpy_old_file_and_add_new_line(char **file, char *line);
 int			check_path(t_data *data, char **line_splited, \
 						int *path_validated, int i);
+
+//utils4.c																	2/5
+void		ft_bzero(void *s, size_t n);
+void		*ft_calloc(size_t nmemb, size_t size);
 
 /******************************************************************************/
 

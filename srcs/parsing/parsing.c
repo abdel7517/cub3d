@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:00:25 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/22 12:04:46 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 13:56:49 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	**handle_first_line(char **file, char *line)
 
 char	**save_line(int position, char *map, char	**file)
 {
-	static int	last_position;
+	static int	last_position = 0;
 	char		*line;
 
 	line = ft_substr(map, (last_position * 2), (position - last_position) + 1);
@@ -62,7 +62,7 @@ char	**iterate_on_file(char *buf, int fd, char *map, char **file)
 		}
 		tmp = ft_strdup(map);
 		if (tmp == NULL)
-			return (0);
+			return (NULL);
 		free(map);
 		map = ft_strjoin(tmp, &buf[0]);
 		if (map == NULL)

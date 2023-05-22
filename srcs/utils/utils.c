@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:30:26 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 13:56:23 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return ((char *)s2);
 	if (s2 == NULL)
 		return ((char *) s1);
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	str = (char *)ft_calloc(sizeof(char), (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (str == NULL)
 		return (NULL);
 	while (s1[++i])
@@ -85,24 +85,48 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	return (dst - i);
 }
 
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	char	*str;
+// 	size_t	i;
+
+// 	i = 0;
+// 	str = ft_calloc(sizeof(char), (len + 1));
+// 	if (str == NULL || s == NULL)
+// 		return (NULL);
+// 	while (i < len)
+// 	{
+// 		if (s[start] != 3)
+// 		{
+// 			str[i] = s[start];
+// 			i++;
+// 		}
+// 		start++;
+// 	}
+// 	str[i] = 0;
+// 	return (str);
+// }
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
+	char	*sub;
 	size_t	i;
+	size_t	len_check;
 
-	i = 0;
-	str = malloc(sizeof(char) * (len + 1));
-	if (str == NULL || s == NULL)
+	len_check = ft_strlen(s);
+	if ((len + start) > len_check)
+		len = len_check - start;
+	if (start > len_check)
+		len = 0;
+	sub = (char *)ft_calloc(sizeof(char), (len + 1));
+	if (!sub)
 		return (NULL);
+	i = 0;
 	while (i < len)
 	{
-		if (s[start] != 3)
-		{
-			str[i] = s[start];
-			i++;
-		}
-		start++;
+		sub[i] = s[start + i];
+		i++;
 	}
-	str[i] = 0;
-	return (str);
+	sub[i] = 0;
+	return (sub);
 }

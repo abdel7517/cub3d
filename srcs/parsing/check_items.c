@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:30:33 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/22 12:17:04 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 12:38:38 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,14 +111,13 @@ int	check_element(t_data *data)
 	{
 		if (check_line(data->file[i], &count_items, data) == 0)
 		{
-			printf("ERROR\nIN LINE");
+			printf("ERROR\nIN LINE\n");
 			return (0);
 		}
 		i++;
 		if (count_items == 5)
 			return (check_position_of_map_in_config_file(data, i));
 	}
-	printf(
-		"Error\nin the config file (texture or color)");
+	printf("Error\nin the config file (texture or color)\n");
 	return (0);
 }

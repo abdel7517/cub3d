@@ -30,7 +30,8 @@ SRCS +=	utils/data.c \
 		utils/ft_split.c \
 		utils/utils.c \
 		utils/utils2.c \
-		utils/utils3.c
+		utils/utils3.c \
+		utils/utils4.c
 
 SRCS += casting/window.c
 
@@ -54,6 +55,7 @@ LIB_MINILIBX = ./libs/libmlx.a ./libs/libmlx_Linux.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g3 -MMD
 MINILIBX_FLAGS = -lXext -lX11 -lm -lz
+VALGRIND_FLAGS = --leak-check=full --show-leak-kinds=all --track-origins=yes # --track-fds=yes 
 
 # /* ~~~~~~~ COMMANDS ~~~~~~~ */
 
@@ -80,10 +82,10 @@ ${LIB_MINILIBX}:
 	@echo $(GREEN) "[OK COMPILED]" $(EOC)
 
 run:	${NAME}
-	./${NAME} ./maps/t.cub
+	./${NAME} ./maps/map.cub
 
 val:	${NAME}
-	valgrind ./${NAME} ./maps/t.cub
+	valgrind ${VALGRIND_FLAGS} ./${NAME} ./maps/t.cub
 
 clean:
 		@echo $(PURPLE) "[🧹Cleaning...🧹]" $(EOC)
