@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 14:10:00 by obouhlel          #+#    #+#             */
-/*   Updated: 2023/05/18 14:14:03 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:34:33 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,7 @@
 
 void	init_data(t_data *data)
 {
-	data->data = NULL;
-	data->file = NULL;
-	data->map = NULL;
-	data->path = NULL;
-	data->map_cpy = NULL;
-	data->mlx = NULL;
-	data->win = NULL;
+	ft_bzero(data, sizeof(t_data));
 }
 
 void	destroy_data(t_data *data)
