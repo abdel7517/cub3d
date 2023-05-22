@@ -29,10 +29,10 @@ SRCS +=	parsing/check_file.c \
 
 SRCS +=	utils/data.c \
 		utils/ft_split.c \
-		utils/utils.c \
-		utils/utils2.c \
-		utils/utils3.c \
-		utils/utils4.c
+		utils/utils_1.c \
+		utils/utils_2.c \
+		utils/utils_3.c \
+		utils/utils_4.c
 
 SRCS += casting/window.c
 
