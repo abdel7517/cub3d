@@ -1,6 +1,7 @@
 # /* ~~~~~~ NAME ~~~~~~ */
 
 NAME = cub3D
+MAP = ./maps/t.cub
 
 # /* ~~~~~~~ Colors ~~~~~~~ */
 
@@ -82,10 +83,13 @@ ${LIB_MINILIBX}:
 	@echo $(GREEN) "[OK COMPILED]" $(EOC)
 
 run:	${NAME}
-	./${NAME} ./maps/map.cub
+	./${NAME} ${MAP}
 
 val:	${NAME}
-	valgrind ${VALGRIND_FLAGS} ./${NAME} ./maps/t.cub
+	valgrind ${VALGRIND_FLAGS} ./${NAME} ${MAP}
+
+norme:
+	norminette includes/cub.h ${SRCS}
 
 clean:
 		@echo $(PURPLE) "[🧹Cleaning...🧹]" $(EOC)

@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:52:40 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/22 12:15:50 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:05:44 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	find_path(char *word)
 	fd = open(word, O_RDONLY);
 	if (fd > 0)
 	{
-		close(fd);
+		ft_close(&fd);
 		return (1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:48:57 by obouhlel          #+#    #+#             */
-/*   Updated: 2023/05/22 12:53:00 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:04:44 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,11 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (NULL);
 	ft_bzero(s, (nmemb * size));
 	return (s);
+}
+
+void	ft_close(int *fd)
+{
+	if (*fd < 0)
+		return ;
+	close(*fd);
 }

@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 15:10:00 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/22 13:02:41 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 14:33:55 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_game
 }	t_data;
 
 /************************************PARSING***********************************/
-//check_file.c																3/5
+//check_file.c																4/5
 int			launch(char *map, t_data *data);
 
 //parsing.c																	5/5
@@ -144,9 +144,10 @@ char		**cpy_old_file_and_add_new_line(char **file, char *line);
 int			check_path(t_data *data, char **line_splited, \
 						int *path_validated, int i);
 
-//utils4.c																	2/5
+//utils4.c																	3/5
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
+void		ft_close(int *fd);
 
 /******************************************************************************/
 
