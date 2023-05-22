@@ -6,13 +6,13 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:00:25 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 12:04:46 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub.h"
 
-char	**handle_first_line(char **file, char *line)
+static char	**handle_first_line(char **file, char *line)
 {
 	file = malloc(sizeof(char *) * 2);
 	if (file == NULL)
@@ -90,7 +90,7 @@ char	**read_file(char **file, char *map, int fd)
 	return (file);
 }
 
-int	parse_map(int fd, t_game *data)
+int	parse_map(int fd, t_data *data)
 {
 	char	**file;
 	char	*map;

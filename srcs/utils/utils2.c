@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 23:18:40 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:11:03 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*create_new_key_value(char *key, char *value)
 	return (key_value);
 }
 
-char	**add_node(char *key, char *value, t_game *data)
+char	**add_node(char *key, char *value, t_data *data)
 {
 	int		i;
 	int		j;
@@ -76,7 +76,7 @@ char	**add_node(char *key, char *value, t_game *data)
 	return (new_file);
 }
 
-char	*get_element(char *key, t_game *data)
+char	*get_element(char *key, t_data *data)
 {
 	int		i;
 	char	**value;

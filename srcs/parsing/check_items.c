@@ -6,13 +6,13 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 22:30:33 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 12:17:04 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub.h"
 
-int	check_format_of_color(char *word, int *digit_suit, int i)
+static int	check_format_of_color(char *word, int *digit_suit, int i)
 {
 	int	digit;
 	int	comma;
@@ -39,7 +39,7 @@ int	check_format_of_color(char *word, int *digit_suit, int i)
 	return (0);
 }
 
-int	check_color(char *word)
+static int	check_color(char *word)
 {
 	int	digit_suit;
 	int	i;
@@ -55,8 +55,8 @@ int	check_color(char *word)
 	return (1);
 }
 
-int	loop_on_line_splited(char **line_splited, int *path_validated,
-							int *color_validated, t_game *data)
+static int	loop_on_line_splited(char **line_splited, int *path_validated,
+							int *color_validated, t_data *data)
 {
 	int	i;
 
@@ -82,7 +82,7 @@ int	loop_on_line_splited(char **line_splited, int *path_validated,
 	return (1);
 }
 
-int	check_line(char *line, int *count_items, t_game *data)
+static int	check_line(char *line, int *count_items, t_data *data)
 {
 	char	**line_splited;
 	int		path_validated;
@@ -100,7 +100,7 @@ int	check_line(char *line, int *count_items, t_game *data)
 	return (1);
 }
 
-int	check_element(t_game *data)
+int	check_element(t_data *data)
 {
 	int	count_items;
 	int	i;

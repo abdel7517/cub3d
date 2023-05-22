@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 17:07:36 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/22 12:00:19 by obouhlel         ###   ########.fr       */
+/*   Created: 2023/05/18 14:10:00 by obouhlel          #+#    #+#             */
+/*   Updated: 2023/05/18 14:14:03 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub.h"
+#include "../../includes/cub.h"
 
-int	main(int ac, char **av)
+void	init_data(t_data *data)
 {
-	t_data	data;
+	data->data = NULL;
+	data->file = NULL;
+	data->map = NULL;
+	data->path = NULL;
+	data->map_cpy = NULL;
+	data->mlx = NULL;
+	data->win = NULL;
+}
 
-	init_data(&data);
-	if (ac != 2)
-		return (printf(ERROR_ARG), EXIT_FAILURE);
-	if (launch(av[1], &data) == EXIT_FAILURE)
-		return (destroy_data(&data), EXIT_FAILURE);
-	if (window_init(&data) == EXIT_FAILURE)
-		return (destroy_data(&data), EXIT_FAILURE);
-	return (destroy_data(&data), EXIT_SUCCESS);
+void	destroy_data(t_data *data)
+{
+	free_file(data->map);
+	free_file(data->file);
+	free_file(data->data);
+	free_file(data->map_cpy);
 }

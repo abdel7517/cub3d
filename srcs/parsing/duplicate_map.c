@@ -6,13 +6,13 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:03:57 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 12:13:18 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub.h"
 
-void	find_biggest_x_and_y(int *x, int *y, t_game *data)
+void	find_biggest_x_and_y(int *x, int *y, t_data *data)
 {
 	int	i;
 	int	j;
@@ -36,7 +36,7 @@ void	find_biggest_x_and_y(int *x, int *y, t_game *data)
 	*y = i;
 }
 
-void	fill_line_with_zero(char *map, int x)
+static void	fill_line_with_zero(char *map, int x)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ void	fill_line_with_zero(char *map, int x)
 	map[i] = 0;
 }
 
-int	create_line_of_map(char **map, int x, int y)
+static int	create_line_of_map(char **map, int x, int y)
 {
 	int	i;
 
@@ -66,7 +66,7 @@ int	create_line_of_map(char **map, int x, int y)
 	return (1);
 }
 
-void	fill_map(char **map, t_game *data)
+void	fill_map(char **map, t_data *data)
 {
 	int	i;
 	int	j;
@@ -95,7 +95,7 @@ void	fill_map(char **map, t_game *data)
 	}
 }
 
-char	**create_map_cpy(int x, int y, t_game *data)
+char	**create_map_cpy(int x, int y, t_data *data)
 {
 	char	**map;
 

@@ -18,18 +18,19 @@ SRCS_DIR = srcs/
 
 SRCS =	main.c
 
-SRCS +=	utils/utils.c \
-		utils/utils2.c \
-		utils/utils3.c \
-		utils/utils_linked_list.c \
-		utils/ft_split.c
-
-SRCS +=	parsing/parsing.c \
+SRCS +=	parsing/check_file.c \
 		parsing/check_items.c \
+		parsing/check_map_closed.c \
 		parsing/check_texture.c \
-		parsing/handle_map.c \
 		parsing/duplicate_map.c \
-		parsing/check_map_closed.c
+		parsing/handle_map.c \
+		parsing/parsing.c \
+
+SRCS +=	utils/data.c \
+		utils/ft_split.c \
+		utils/utils.c \
+		utils/utils2.c \
+		utils/utils3.c
 
 SRCS += casting/window.c
 

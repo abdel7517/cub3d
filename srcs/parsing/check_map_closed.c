@@ -6,13 +6,13 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:07:43 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:11:03 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub.h"
 
-void	flood_fill(t_game *data, int x, int y, char value)
+void	flood_fill(t_data *data, int x, int y, char value)
 {
 	if (data->map_cpy[x][y + 1] && data->map_cpy[x][y] != '1'
 		&& data->map_cpy[x][y] != value)
@@ -38,7 +38,7 @@ void	flood_fill(t_game *data, int x, int y, char value)
 	}
 }
 
-int	check_if_map_is_closed(t_game *data)
+int	check_if_map_is_closed(t_data *data)
 {
 	int	i;
 	int	j;
@@ -59,7 +59,7 @@ int	check_if_map_is_closed(t_game *data)
 	return (printf("Error\nThe map is not closed"), 0);
 }
 
-int	find_element_on_map(t_game *data)
+int	find_element_on_map(t_data *data)
 {
 	int		position;
 
@@ -75,7 +75,7 @@ int	find_element_on_map(t_game *data)
 	return (1);
 }
 
-int	find_starting_position(t_game *data, int *position)
+int	find_starting_position(t_data *data, int *position)
 {
 	int	i;
 	int	j;
@@ -102,7 +102,7 @@ int	find_starting_position(t_game *data, int *position)
 	return (1);
 }
 
-int	find_bad_element_on_map(t_game *data)
+int	find_bad_element_on_map(t_data *data)
 {
 	int	i;
 	int	j;

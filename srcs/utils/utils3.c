@@ -6,13 +6,13 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 16:53:01 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:11:03 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub.h"
 
-void	free_file_in_game(t_game *data)
+void	free_file_in_game(t_data *data)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ void	free_file_in_game(t_game *data)
 	data->file = NULL;
 }
 
-void	free_data_in_game(t_game *data)
+void	free_data_in_game(t_data *data)
 {
 	int	i;
 
@@ -44,7 +44,7 @@ void	free_data_in_game(t_game *data)
 	data->data = NULL;
 }
 
-char	**add_line_of_map(char *line, t_game *data)
+char	**add_line_of_map(char *line, t_data *data)
 {
 	int		i;
 	int		j;
@@ -99,7 +99,7 @@ char	**cpy_old_file_and_add_new_line(char **file, char *line)
 	return (new_file);
 }
 
-int	check_path(t_game *data, char **line_splited, int *path_validated, int i)
+int	check_path(t_data *data, char **line_splited, int *path_validated, int i)
 {
 	if (find_path(line_splited[i + 1]) == 0)
 		return (0);

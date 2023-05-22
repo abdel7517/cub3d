@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:52:40 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 12:15:50 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	find_path(char *word)
 	return (0);
 }
 
-int	check_id2(char *word)
+static int	check_id2(char *word)
 {
-	static int	no_s;
-	static int	so_s;
+	static int	no_s = 0;
+	static int	so_s = 0;
 
 	if (ft_strcmp("NO", word) == 0 && no_s == 0)
 	{
@@ -43,10 +43,10 @@ int	check_id2(char *word)
 	return (0);
 }
 
-int	check_id(char *word)
+static int	check_id(char *word)
 {
-	static int	we_s;
-	static int	ea_s;
+	static int	we_s = 0;
+	static int	ea_s = 0;
 
 	if (check_id2(word))
 		return (1);
@@ -65,7 +65,7 @@ int	check_id(char *word)
 
 int	is_id(char *word)
 {
-	static int	f_s;
+	static int	f_s = 0;
 
 	if (word == NULL)
 		return (0);

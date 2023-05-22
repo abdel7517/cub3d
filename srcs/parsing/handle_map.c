@@ -6,13 +6,13 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:03:48 by abchaban          #+#    #+#             */
-/*   Updated: 2023/05/16 09:59:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/22 12:14:50 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub.h"
 
-int	map_start(char *line)
+static int	map_start(char *line)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	map_start(char *line)
 	return (0);
 }
 
-int	check_element_after_map(t_game *data, int i)
+static int	check_element_after_map(t_data *data, int i)
 {
 	while (data->file[i])
 	{
@@ -40,7 +40,7 @@ int	check_element_after_map(t_game *data, int i)
 	return (1);
 }
 
-int	check_position_of_map_in_config_file(t_game *data, int i)
+int	check_position_of_map_in_config_file(t_data *data, int i)
 {
 	while (data->file[i])
 	{
@@ -60,7 +60,7 @@ int	check_position_of_map_in_config_file(t_game *data, int i)
 	return (0);
 }
 
-int	check_map(t_game *data)
+int	check_map(t_data *data)
 {
 	int		x;
 	int		y;

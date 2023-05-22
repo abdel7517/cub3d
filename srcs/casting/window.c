@@ -6,13 +6,13 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 10:24:12 by obouhlel          #+#    #+#             */
-/*   Updated: 2023/05/16 12:58:57 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/18 14:11:03 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub.h"
 
-static int	close_window(t_game *data)
+static int	close_window(t_data *data)
 {
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
@@ -21,14 +21,14 @@ static int	close_window(t_game *data)
 	exit(EXIT_SUCCESS);
 }
 
-static int	keyboard(int keycode, t_game *data)
+static int	keyboard(int keycode, t_data *data)
 {
 	if (keycode == ESCAPE)
 		close_window(data);
 	return (EXIT_SUCCESS);
 }
 
-int	window_init(t_game *data)
+int	window_init(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (!data->mlx)
