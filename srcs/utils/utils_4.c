@@ -6,7 +6,7 @@
 /*   By: obouhlel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:48:57 by obouhlel          #+#    #+#             */
-/*   Updated: 2023/05/22 15:38:03 by obouhlel         ###   ########.fr       */
+/*   Updated: 2023/05/23 09:18:10 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,13 @@ void	ft_free(void **ptr)
 	if (*ptr)
 		free(*ptr);
 	*ptr = NULL;
+}
+
+void	ft_print_strs(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+		printf("%s\n", strs[i++]);
 }
